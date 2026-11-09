@@ -1,0 +1,133 @@
+body {
+    background-color: #0B2118;
+}
+#mysidenav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    padding: 20px 10px;
+    background-color: #415730;
+    color: #F9EACC;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: "Edu QLD Hand", cursive;
+    box-sizing: border-box;
+    }
+#image1 {
+    width: 180px;
+    height: auto;
+    margin: auto;
+    }
+.nav {
+    display: block;
+    padding: 12px 16px;
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #685947;
+    color: #F9EACC;
+}
+.nav:hover {
+    background-color: #E9AB37;
+}
+#contact {
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+form {
+    font-size: 16px;
+}
+h3 {
+    font-size: 22px;
+}
+#title {
+    text-align: center;
+    font-family: "Amatic SC", cursive;
+}
+h1 {
+    font-size: 70px;
+    color: #F9EACC;
+    background-color: #415730;
+    width: fit-content;
+    text-align: center;
+    margin: 25px auto;
+    padding: 12px;
+}
+h2 {
+    font-size: 42px;
+    color: #F9EACC;
+    background-color: #415730;
+    width: fit-content;
+    margin: auto;
+    padding: 12px;
+}
+#table {
+    margin: 30px auto;
+    width: 800px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    color: #F9EACC;
+    font-size: 20px;
+    font-family: Special elite;
+    gap: 15px; 
+    
+}
+#forest, #magical_forest, #path{
+    width: 400px;
+    height: 400px;
+    border: 10px solid #68806D;
+}
+h6{
+    font-size: 28px;
+}
+table {
+    margin: auto;
+    border: solid 5px #68806D;
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    
+}
+th {
+    background-color: #415730;
+}
+th, td {
+    border: solid 3px #68806D;
+    padding: 8px;
+}
+#list {
+    margin: auto;
+}
+h5 {
+    display: block;
+    font-family: merriweather;
+    font-size: 20px;
+    background-color: #415730;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 8px;
+}
+#icetable {
+    margin: 30px auto;
+    width: 800px;
+    height: 1800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    color: #F9EACC;
+    font-size: 20px;
+    font-family: Special elite;
+    gap: 15px; 
+}
+.ice_images {
+    width: 350px;
+    height: 350px;
+    border: 10px solid #68806D;
+
+}

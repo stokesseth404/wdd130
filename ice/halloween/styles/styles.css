@@ -1,0 +1,769 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap");
+
+/* =========================
+   COLOR THEME
+   ========================= */
+
+:root {
+    --orange: #ff6000;
+    --black: #1a1a1a;
+    --purple: #800080;
+    --green: #00ff00;
+    --gold: #ffd700;
+    --dark-purple: #240024;
+}
+
+/* =========================
+   GENERAL STYLING
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at top, #591259, var(--black) 55%);
+    color: white;
+    font-family: Georgia, serif;
+}
+
+#wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(26, 26, 26, 0.96);
+    border: 4px solid var(--orange);
+    box-shadow:
+        0 0 20px var(--orange),
+        0 0 60px var(--purple);
+    overflow: hidden;
+}
+
+/* =========================
+   HEADER AND NAVIGATION
+   ========================= */
+
+header {
+    position: relative;
+    min-height: 125px;
+    padding: 25px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, var(--purple), var(--dark-purple));
+    border-bottom: 6px solid var(--orange);
+    perspective: 1000px;
+}
+
+/* Bouncing skeleton */
+header::before {
+    content: "💀";
+    position: absolute;
+    top: 8px;
+    left: 3%;
+    z-index: 5;
+    font-size: 2.5rem;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px var(--green));
+    animation: skeleton-dvd 9s linear infinite;
+}
+
+/* Roaming eyeball */
+header::after {
+    content: "👁️";
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    z-index: 6;
+    font-size: 2.5rem;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px red);
+    animation:
+        eye-roam 10s linear infinite,
+        eye-blink 4s ease-in-out infinite;
+}
+
+nav {
+    position: relative;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    perspective: 900px;
+    transform-style: preserve-3d;
+}
+
+/* Laser beam */
+nav ul::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    width: 100vw;
+    height: 7px;
+    background: #ff0000;
+    box-shadow:
+        0 0 8px #ff0000,
+        0 0 20px var(--orange),
+        0 0 35px #ff00ff;
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: left center;
+    animation: laser-shot 8s linear infinite;
+}
+
+nav li {
+    position: relative;
+    padding: 13px 22px;
+    background: var(--orange);
+    color: var(--black);
+    border: 3px solid var(--gold);
+    border-radius: 62% 38% 71% 29% / 44% 63% 37% 56%;
+    box-shadow: 0 0 10px var(--gold);
+    font-family: "Creepster", cursive;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.35s ease;
+    animation: blob-morph 8s ease-in-out infinite;
+}
+
+nav li:nth-child(2) {
+    animation-delay: -2s;
+}
+
+nav li:nth-child(3) {
+    animation-delay: -4s;
+}
+
+nav li:nth-child(4) {
+    animation-delay: -6s;
+}
+
+/* 3D shadow behind buttons */
+nav li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--dark-purple);
+    box-shadow: 0 0 20px var(--black);
+    transform: translateZ(-18px) translate(10px, 10px);
+    transition: 0.35s ease;
+}
+
+/* Candy icon */
+nav li:nth-child(2)::after {
+    content: " 🍬";
+}
+
+/* YouTube-style 3D tilt */
+nav li:hover {
+    background: var(--green);
+    color: var(--black);
+    box-shadow:
+        -12px 15px 0 var(--purple),
+        0 0 25px var(--green);
+    transform:
+        perspective(700px)
+        rotateX(18deg)
+        rotateY(-20deg)
+        translateZ(25px)
+        translateY(-8px)
+        scale(1.08);
+}
+
+nav li:nth-child(even):hover {
+    transform:
+        perspective(700px)
+        rotateX(18deg)
+        rotateY(20deg)
+        translateZ(25px)
+        translateY(-8px)
+        scale(1.08);
+}
+
+nav li:hover::before {
+    background: var(--orange);
+    transform: translateZ(-25px) translate(18px, 18px) rotate(-3deg);
+}
+
+nav li:active {
+    transform:
+        perspective(700px)
+        rotateX(-8deg)
+        translateZ(-10px)
+        scale(0.9);
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+main {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    min-height: calc(100vh - 170px);
+    padding: clamp(35px, 6vw, 80px);
+    overflow: hidden;
+    text-align: center;
+}
+
+main::before {
+    content: "👻";
+    position: absolute;
+    top: 20px;
+    left: -60px;
+    font-size: 3rem;
+    pointer-events: none;
+    animation: ghost-fly 10s linear infinite;
+}
+
+main::after {
+    content: "🍬";
+    position: absolute;
+    top: 100px;
+    right: -50px;
+    font-size: 2.5rem;
+    pointer-events: none;
+    animation: candy-fly 7s linear infinite;
+}
+
+h1,
+main > img {
+    grid-column: 1 / -1;
+}
+
+h1 {
+    margin: 0 0 20px;
+    color: var(--orange);
+    font-family: "Nosifer", cursive;
+    font-size: clamp(2.3rem, 7vw, 5.5rem);
+    line-height: 1.2;
+    text-shadow:
+        4px 4px 0 var(--purple),
+        0 0 15px var(--orange),
+        0 0 30px var(--gold);
+    animation: title-glow 2s ease-in-out infinite alternate;
+}
+
+main > img {
+    justify-self: center;
+    width: min(85%, 750px);
+    max-height: 460px;
+    object-fit: cover;
+    margin: 0 auto 25px;
+    border: 8px solid var(--orange);
+    border-radius: 62% 38% 71% 29% / 44% 63% 37% 56%;
+    box-shadow:
+        0 0 15px var(--gold),
+        0 0 35px var(--purple);
+    cursor: pointer;
+    transition: 0.35s ease;
+    animation: blob-morph 8s ease-in-out infinite;
+}
+
+main > img:hover {
+    transform: scale(1.06) rotate(-2deg);
+    filter: brightness(1.3) saturate(1.5);
+    box-shadow:
+        0 0 25px var(--green),
+        0 0 55px var(--orange);
+}
+
+/* Deep-fried image click effect */
+main > img:active {
+    transform: scale(1.18) rotate(8deg);
+    filter:
+        contrast(250%)
+        saturate(400%)
+        brightness(1.3)
+        hue-rotate(90deg);
+    box-shadow:
+        0 0 20px var(--green),
+        0 0 50px var(--orange),
+        0 0 100px #ff00ff;
+}
+
+/* =========================
+   CONTENT BUBBLES
+   ========================= */
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 360px;
+    padding: 36px 34px;
+    overflow: hidden;
+    text-align: left;
+    border: 5px solid var(--orange);
+    border-radius: 62% 38% 71% 29% / 44% 63% 37% 56%;
+    box-shadow:
+        0 0 18px var(--purple),
+        7px 7px 0 var(--gold);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    transition: 0.35s ease;
+    animation: blob-morph 8s ease-in-out infinite;
+}
+
+section:nth-of-type(1) {
+    background-image:
+        linear-gradient(
+            rgba(70, 0, 70, 0.72),
+            rgba(20, 10, 20, 0.88)
+        ),
+        url("../images/pumpkin-lab.png");
+}
+
+section:nth-of-type(2) {
+    background-image:
+        linear-gradient(
+            rgba(35, 0, 75, 0.68),
+            rgba(15, 5, 30, 0.88)
+        ),
+        url("../images/bat-cave.png");
+    animation-delay: -2s;
+}
+
+section:nth-of-type(3) {
+    background-image:
+        linear-gradient(
+            rgba(50, 0, 60, 0.68),
+            rgba(15, 5, 25, 0.88)
+        ),
+        url("../images/skeleton-carnival.png");
+    animation-delay: -4s;
+}
+
+section::before {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    z-index: 1;
+    font-size: 3.5rem;
+    opacity: 0.75;
+    transition: 0.35s ease;
+}
+
+section:nth-of-type(1)::before {
+    content: "🎃";
+}
+
+section:nth-of-type(2)::before {
+    content: "🦇";
+}
+
+section:nth-of-type(3)::before {
+    content: "💀";
+}
+
+section:hover {
+    background-blend-mode: screen;
+    box-shadow:
+        0 0 25px var(--green),
+        0 0 45px var(--orange);
+    filter: brightness(1.12);
+}
+
+section:hover::before {
+    opacity: 1;
+    transform: scale(1.5) rotate(20deg);
+}
+
+section h2,
+section p {
+    position: relative;
+    z-index: 2;
+    padding-right: 35px;
+}
+
+section h2 {
+    margin: 0 0 18px;
+    color: var(--gold);
+    font-family: "Creepster", cursive;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 2px 2px 4px var(--black);
+}
+
+/* Psychedelic moving paragraph text */
+section p {
+    max-width: 55ch;
+    margin: 20px auto 0;
+    font-size: clamp(1.1rem, 1.2vw + 0.8rem, 1.4rem);
+    line-height: 1.85;
+    letter-spacing: 0.025em;
+    font-weight: bold;
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            var(--gold),
+            var(--orange),
+            #ff00ff,
+            #00ffff,
+            var(--green)
+        );
+    background-size: 500% 500%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: psychedelic-wave 5s ease-in-out infinite;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    width: 100%;
+    padding: 25px;
+    background:
+        linear-gradient(90deg, var(--orange), var(--gold), var(--orange));
+    color: var(--black);
+    border-top: 6px solid var(--purple);
+    border-radius: 62% 38% 71% 29% / 44% 63% 37% 56%;
+    font-family: "Creepster", cursive;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    animation: blob-morph 8s ease-in-out infinite;
+}
+
+footer:hover {
+    background: var(--green);
+    color: var(--purple);
+    letter-spacing: 5px;
+    transform: scale(1.02);
+}
+
+/* =========================
+   CLICK JUMPSCARE
+   ========================= */
+
+main:has(> img:active)::after {
+    content: "😱";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ff0000 0 12px,
+            #ffff00 12px 24px,
+            #ff00ff 24px 36px
+        );
+    color: white;
+    font-size: clamp(8rem, 30vw, 25rem);
+    text-shadow:
+        8px 8px 0 #000,
+        -8px -8px 0 var(--green);
+    pointer-events: none;
+    animation: jumpscare 0.45s steps(2, end);
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes blob-morph {
+    0% {
+        border-radius: 62% 38% 71% 29% / 44% 63% 37% 56%;
+    }
+
+    25% {
+        border-radius: 37% 63% 42% 58% / 61% 38% 62% 39%;
+    }
+
+    50% {
+        border-radius: 74% 26% 56% 44% / 35% 69% 31% 65%;
+    }
+
+    75% {
+        border-radius: 45% 55% 68% 32% / 72% 41% 59% 28%;
+    }
+
+    100% {
+        border-radius: 62% 38% 71% 29% / 44% 63% 37% 56%;
+    }
+}
+
+@keyframes title-glow {
+    from {
+        filter: brightness(0.9);
+    }
+
+    to {
+        filter: brightness(1.4);
+    }
+}
+
+@keyframes psychedelic-wave {
+    0% {
+        background-position: 0% 50%;
+        transform: skewX(0deg);
+    }
+
+    25% {
+        background-position: 50% 100%;
+        transform: skewX(2deg);
+    }
+
+    50% {
+        background-position: 100% 50%;
+        transform: skewX(-2deg);
+    }
+
+    75% {
+        background-position: 50% 0%;
+        transform: skewX(2deg);
+    }
+
+    100% {
+        background-position: 0% 50%;
+        transform: skewX(0deg);
+    }
+}
+
+@keyframes ghost-fly {
+    0% {
+        left: -60px;
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: translateY(90px) rotate(15deg);
+    }
+
+    100% {
+        left: 105%;
+        transform: rotate(-15deg);
+    }
+}
+
+@keyframes candy-fly {
+    0% {
+        right: -50px;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(100px) rotate(180deg);
+    }
+
+    100% {
+        right: 105%;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes skeleton-dvd {
+    0% {
+        left: 3%;
+        top: 8px;
+        transform: rotate(-15deg);
+    }
+
+    25% {
+        left: 88%;
+        top: 8px;
+        transform: rotate(15deg);
+    }
+
+    50% {
+        left: 88%;
+        top: 70px;
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        left: 3%;
+        top: 70px;
+        transform: rotate(15deg);
+    }
+
+    100% {
+        left: 3%;
+        top: 8px;
+        transform: rotate(-15deg);
+    }
+}
+
+@keyframes eye-roam {
+    0% {
+        left: 8%;
+        top: 10px;
+    }
+
+    25% {
+        left: 82%;
+        top: 10px;
+    }
+
+    50% {
+        left: 82%;
+        top: 70px;
+    }
+
+    75% {
+        left: 8%;
+        top: 70px;
+    }
+
+    100% {
+        left: 8%;
+        top: 10px;
+    }
+}
+
+@keyframes eye-blink {
+    0%, 45%, 50%, 100% {
+        transform: scaleY(1);
+    }
+
+    47% {
+        transform: scaleY(0.08);
+    }
+}
+
+@keyframes laser-shot {
+    0%, 55% {
+        opacity: 0;
+        transform: rotate(-12deg) scaleX(0);
+    }
+
+    58% {
+        opacity: 1;
+        transform: rotate(-12deg) scaleX(1);
+    }
+
+    61% {
+        opacity: 1;
+        transform: rotate(12deg) scaleX(1);
+    }
+
+    64%, 100% {
+        opacity: 0;
+        transform: rotate(12deg) scaleX(0);
+    }
+}
+
+@keyframes jumpscare {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) rotate(-20deg);
+    }
+
+    35% {
+        opacity: 1;
+        transform: scale(1.5) rotate(15deg);
+    }
+
+    70% {
+        transform: scale(0.9) rotate(-8deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2) rotate(0deg);
+    }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 850px) {
+    main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+    }
+
+    section {
+        min-height: 330px;
+        padding: 30px 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        min-height: 145px;
+        padding: 18px 8px;
+    }
+
+    nav li {
+        width: 44%;
+        padding: 10px 5px;
+        font-size: 1.1rem;
+    }
+
+    main {
+        display: block;
+        padding: 35px 18px;
+    }
+
+    main > img {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    section {
+        min-height: 280px;
+        margin: 30px 0;
+        padding: 30px 25px;
+    }
+
+    section h2,
+    section p {
+        padding-right: 20px;
+    }
+
+    section p {
+        font-size: 1.1rem;
+        line-height: 1.75;
+    }
+
+    header::before,
+    header::after {
+        font-size: 2rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
